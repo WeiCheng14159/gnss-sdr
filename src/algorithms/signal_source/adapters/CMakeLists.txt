@@ -116,8 +116,8 @@ if(ENABLE_POCKETSDR)
 endif()
 
 if(ENABLE_UHD)
-    list(APPEND OPT_DRIVER_SOURCES uhd_signal_source.cc)
-    list(APPEND OPT_DRIVER_HEADERS uhd_signal_source.h)
+    list(APPEND OPT_DRIVER_SOURCES uhd_signal_source.cc rfsoc_uhd_signal_source.cc)
+    list(APPEND OPT_DRIVER_HEADERS uhd_signal_source.h rfsoc_uhd_signal_source.h)
 endif()
 
 if(ENABLE_ZMQ)
@@ -249,6 +249,8 @@ if(ENABLE_UHD)
         PUBLIC
             Gnuradio::uhd
             Uhd::uhd  # for uhd/config.hpp in gnuradio/uhd/usrp_source.h
+        PRIVATE
+            Gnuradio::filter  # RFSoC_UHD_Signal_Source decimators
     )
 endif()
 

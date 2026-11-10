@@ -51,6 +51,9 @@
 
 #include "unit-tests/signal-processing-blocks/sources/rfsoc_uhd_filter_design_test.cc"
 #include "unit-tests/signal-processing-blocks/sources/rfsoc_uhd_utils_test.cc"
+#if UHD_DRIVER
+#include "unit-tests/signal-processing-blocks/sources/rfsoc_uhd_signal_source_test.cc"
+#endif
 
 #ifndef EXCLUDE_TESTS_REQUIRING_BINARIES
 #include "unit-tests/control-plane/control_thread_test.cc"

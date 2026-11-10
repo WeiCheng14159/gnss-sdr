@@ -114,6 +114,7 @@
 #endif
 
 #if UHD_DRIVER
+#include "rfsoc_uhd_signal_source.h"
 #include "uhd_signal_source.h"
 #endif
 
@@ -326,6 +327,10 @@ std::unique_ptr<SignalSourceInterface> get_signal_source_block(
     else if (implementation == "UHD_Signal_Source")
         {
             return std::make_unique<UhdSignalSource>(configuration, role, in_streams, out_streams, queue);
+        }
+    else if (implementation == "RFSoC_UHD_Signal_Source")
+        {
+            return std::make_unique<RfsocUhdSignalSource>(configuration, role, in_streams, out_streams, queue);
         }
 #endif
 #if ENABLE_ION_SOURCE
