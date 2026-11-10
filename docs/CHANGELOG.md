@@ -12,6 +12,25 @@ SPDX-FileCopyrightText: 2011-2026 Carles Fernandez-Prades <carles.fernandez@cttc
 
 All notable changes to GNSS-SDR will be documented in this file.
 
+## [Unreleased](https://github.com/gnss-sdr/gnss-sdr/tree/next)
+
+### Improvements in Interoperability:
+
+- Added the `RFSoC_UHD_Signal_Source` implementation of the _Signal Source_
+  block, for AMD RFSoC boards (Real Digital RFSoC 4x2) served as UHD devices
+  over 100 GbE by [uhd-rfsoc](https://github.com/WeiCheng14159/uhd-rfsoc). The
+  board's lowest per-channel rate (120 to 125 MS/s) is brought down to the
+  configured `sampling_frequency` by a multi-stage equiripple FIR decimator
+  per RF channel (60 dB rejection of everything that folds onto the
+  passband by default), with the stage split chosen for the lowest
+  computational load.
+  Tuning is checked against the first Nyquist zone of the loaded converter
+  rate (0 to at least 2400 MHz), which covers every GNSS band, since uhd-rfsoc
+  clamps out-of-range frequencies silently. One or two RF channels are
+  supported. Example configurations:
+  `conf/RealTime_input/gnss-sdr_GPS_L1_RFSoC4x2_realtime.conf` and
+  `conf/RealTime_input/gnss-sdr_GPS_L1_L5_RFSoC4x2_realtime.conf`.
+
 ## [GNSS-SDR v0.0.22](https://github.com/gnss-sdr/gnss-sdr/releases/tag/v0.0.22) - 2026-10-04
 
 ### Improvements in Accuracy:
