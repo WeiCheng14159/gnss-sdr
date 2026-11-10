@@ -57,6 +57,8 @@ set(SIGNAL_SOURCE_LIB_SOURCES
     rtl_tcp_dongle_info.cc
     gnss_sdr_valve.cc
     gnss_sdr_timestamp.cc
+    rfsoc_uhd_filter_design.cc
+    rfsoc_uhd_utils.cc
     ${OPT_SIGNAL_SOURCE_LIB_SOURCES}
 )
 
@@ -64,6 +66,8 @@ set(SIGNAL_SOURCE_LIB_HEADERS
     rtl_tcp_commands.h
     rtl_tcp_dongle_info.h
     gnss_sdr_valve.h
+    rfsoc_uhd_filter_design.h
+    rfsoc_uhd_utils.h
     ${OPT_SIGNAL_SOURCE_LIB_HEADERS}
 )
 
@@ -92,6 +96,7 @@ target_link_libraries(signal_source_libs
         Gnuradio::runtime
     PRIVATE
         core_libs
+        Gnuradio::filter  # pm_remez for rfsoc_uhd_filter_design
 )
 
 if(ENABLE_GLOG_AND_GFLAGS)

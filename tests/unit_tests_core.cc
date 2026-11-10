@@ -49,6 +49,9 @@
 #include "unit-tests/signal-processing-blocks/telemetry_decoder/galileo_fnav_inav_decoder_test.cc"
 #include "unit-tests/signal-processing-blocks/telemetry_decoder/sbas_l1_telemetry_decoder_test.cc"
 
+#include "unit-tests/signal-processing-blocks/sources/rfsoc_uhd_filter_design_test.cc"
+#include "unit-tests/signal-processing-blocks/sources/rfsoc_uhd_utils_test.cc"
+
 #ifndef EXCLUDE_TESTS_REQUIRING_BINARIES
 #include "unit-tests/control-plane/control_thread_test.cc"
 #include "unit-tests/control-plane/file_configuration_test.cc"
